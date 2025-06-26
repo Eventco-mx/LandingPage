@@ -42,30 +42,26 @@ export default function LandingPage() {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-100/50 to-pink-100/50 rounded-3xl transform -skew-y-2 shadow-xl"></div>
           <div className="relative z-10">
             {currentView === "selection" && (
-              <div className="text-center max-w-2xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                  ¿Cómo quieres usar CELEA?
-                </h2>
-                <p className="text-lg text-gray-600 mb-12">
-                  Únete a la lista de espera
-                </p>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <Button
-                    onClick={() => setCurrentView("user")}
-                    className="h-32 bg-white hover:bg-purple-50 text-gray-900 border-2 border-purple-200 hover:border-purple-400 flex flex-col items-center justify-center gap-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <Calendar className="h-12 w-12 text-purple-600" />
-                    Quiero organizar mi evento
-                  </Button>
-                  <Button
-                    onClick={() => setCurrentView("provider")}
-                    className="h-32 bg-white hover:bg-purple-50 text-gray-900 border-2 border-purple-200 hover:border-purple-400 flex flex-col items-center justify-center gap-4 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <Users className="h-12 w-12 text-purple-600" />
-                    Quiero unirme como proveedor
-                  </Button>
+              <>
+                <div className="text-center max-w-2xl mx-auto">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                    ¿Listo para hacer crecer tu negocio?
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-8">
+                    Sé parte de los primeros proveedores en <b>Celea</b> y obtén
+                    acceso prioritario cuando lancemos la plataforma.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button
+                      size="lg"
+                      className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-8 py-6 h-auto text-lg"
+                      onClick={() => setCurrentView("provider")}
+                    >
+                      Únete como proveedor
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              </>
             )}
 
             {currentView === "user" && (
@@ -90,7 +86,7 @@ export default function LandingPage() {
                   className="mb-6 text-purple-600 hover:text-purple-700"
                 >
                   <ArrowLeft className="h-4 w-4 mr-2" />
-                  Volver a opciones
+                  Volver
                 </Button>
                 <ProviderSignup />
               </div>

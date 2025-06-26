@@ -62,7 +62,7 @@ export default function ProviderBenefitsSection() {
             Para Proveedores
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-            Haz crecer tu negocio con CELEA
+            Haz crecer tu negocio con <b>Celea</b>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Únete a la plataforma líder en servicios para eventos y lleva tu
@@ -89,47 +89,6 @@ export default function ProviderBenefitsSection() {
               </p>
             </div>
           ))}
-        </div>
-
-        {/* CTA Section */}
-        <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-gray-100">
-          <div className="text-center max-w-2xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              ¿Listo para hacer crecer tu negocio?
-            </h3>
-            <p className="text-lg text-gray-600 mb-8">
-              Sé parte de los primeros proveedores en CELEA y obtén acceso
-              prioritario cuando lancemos la plataforma.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-8 py-6 h-auto text-lg"
-                onClick={() => {
-                  const formsSection = document.getElementById("forms-section");
-                  if (formsSection) {
-                    formsSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              >
-                Únete como proveedor
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-purple-600 text-purple-600 hover:bg-purple-50 font-medium px-8 py-6 h-auto text-lg"
-                onClick={() => {
-                  const benefitsSection =
-                    document.getElementById("benefits-section");
-                  if (benefitsSection) {
-                    benefitsSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
-              >
-                Conoce más sobre CELEA
-              </Button>
-            </div>
-          </div>
         </div>
 
         {/* Stats Section */}

@@ -45,7 +45,7 @@ export default function LoadingAnimation() {
         {/* Texto central */}
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-4xl font-bold text-purple-600 tracking-widest animate-pulse">
-            CELEA
+            <b>Celea</b>
           </span>
         </div>
 

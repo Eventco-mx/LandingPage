@@ -16,9 +16,9 @@ export default function HeroSection() {
               Organiza tu fiesta perfecta con proveedores verificados
             </h1>
             <p className="text-lg md:text-xl text-gray-600 max-w-[600px]">
-              CELEA te conecta con los mejores servicios para tu evento, todo
-              desde una sola app. Encuentra inflables, DJs, catering, mobiliario
-              y más.
+              <b>Celea</b> te conecta con los mejores servicios para tu evento,
+              todo desde una sola app. Encuentra inflables, DJs, catering,
+              mobiliario y más.
             </p>
             <Button
               size="lg"
@@ -36,7 +36,7 @@ export default function HeroSection() {
           <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
             <Image
               src="/colorful-dance-party.png"
-              alt="Celebración de evento con CELEA"
+              alt="Celebración de evento con <b>Celea</b>"
               fill
               className="object-cover"
               priority

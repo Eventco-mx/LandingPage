@@ -40,7 +40,7 @@ export default function ProviderSignup() {
           </h3>
           <p className="text-gray-600">
             Nos pondremos en contacto contigo pronto para darte más información
-            sobre cómo unirte a CELEA como proveedor.
+            sobre cómo unirte a <b>Celea</b> como proveedor.
           </p>
         </div>
       </div>
@@ -53,8 +53,8 @@ export default function ProviderSignup() {
         ¿Eres proveedor de servicios para eventos?
       </h2>
       <p className="text-gray-600 mb-6">
-        Sé de los primeros en ofrecer tus servicios en CELEA y aumenta tus
-        ventas
+        Sé de los primeros en ofrecer tus servicios en <b>Celea</b> y aumenta
+        tus ventas
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">

@@ -27,6 +27,10 @@ export default function LandingPage() {
     return () => clearTimeout(timer);
   }, []);
 
+  const cancelSignupHandler = () => {
+    setCurrentView("selection");
+  };
+
   return (
     <>
       {isLoading && <LoadingAnimation />}
@@ -88,7 +92,7 @@ export default function LandingPage() {
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Volver
                 </Button>
-                <ProviderSignup />
+                <ProviderSignup onCancelHandler={cancelSignupHandler} />
               </div>
             )}
           </div>

@@ -1,35 +1,35 @@
-'use client'
+"use client";
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { CalendarIcon } from 'lucide-react'
-import { Calendar } from "@/components/ui/calendar"
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { CalendarIcon } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
-} from "@/components/ui/popover"
-import { format } from "date-fns"
-import { es } from "date-fns/locale"
-import { cn } from "@/lib/utils"
+} from "@/components/ui/popover";
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
+import { cn } from "@/lib/utils";
 
 export default function UserSignup() {
-  const [date, setDate] = useState<Date>()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [date, setDate] = useState<Date>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+
     // Simulate form submission
     setTimeout(() => {
-      setIsSubmitting(false)
-      setIsSubmitted(true)
-    }, 1500)
-  }
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }, 1500);
+  };
 
   if (isSubmitted) {
     return (
@@ -38,13 +38,15 @@ export default function UserSignup() {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
             <CheckCircle className="h-8 w-8 text-green-600" />
           </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">¡Gracias por registrarte!</h3>
+          <h3 className="text-2xl font-bold text-gray-900 mb-2">
+            ¡Gracias por registrarte!
+          </h3>
           <p className="text-gray-600">
-            Te notificaremos cuando EVENT.CO esté disponible en tu ciudad.
+            Te notificaremos cuando CELEA esté disponible en tu ciudad.
           </p>
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -53,27 +55,35 @@ export default function UserSignup() {
         ¿Quieres organizar tu próximo evento?
       </h2>
       <p className="text-gray-600 mb-6">
-        Regístrate en nuestra lista de espera y sé de los primeros en disfrutar de EVENT.CO
+        Regístrate en nuestra lista de espera y sé de los primeros en disfrutar
+        de CELEA
       </p>
-      
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="user-name">Nombre</Label>
           <Input id="user-name" placeholder="Tu nombre completo" required />
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="user-email">Correo electrónico</Label>
-          <Input id="user-email" type="email" placeholder="tu@email.com" required />
+          <Input
+            id="user-email"
+            type="email"
+            placeholder="tu@email.com"
+            required
+          />
         </div>
-        
+
         <div className="space-y-2">
           <Label htmlFor="user-city">Ciudad</Label>
           <Input id="user-city" placeholder="¿Dónde vives?" required />
         </div>
-        
+
         <div className="space-y-2">
-          <Label htmlFor="event-date">Fecha estimada de próximo evento (opcional)</Label>
+          <Label htmlFor="event-date">
+            Fecha estimada de próximo evento (opcional)
+          </Label>
           <Popover>
             <PopoverTrigger asChild>
               <Button
@@ -81,7 +91,11 @@ export default function UserSignup() {
                 className="w-full justify-start text-left font-normal"
               >
                 <CalendarIcon className="mr-2 h-4 w-4" />
-                {date ? format(date, "PPP", { locale: es }) : <span>Selecciona una fecha</span>}
+                {date ? (
+                  format(date, "PPP", { locale: es })
+                ) : (
+                  <span>Selecciona una fecha</span>
+                )}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0">
@@ -95,17 +109,17 @@ export default function UserSignup() {
             </PopoverContent>
           </Popover>
         </div>
-        
-        <Button 
-          type="submit" 
-          className="w-full bg-purple-600 hover:bg-purple-700 text-white" 
+
+        <Button
+          type="submit"
+          className="w-full bg-purple-600 hover:bg-purple-700 text-white"
           disabled={isSubmitting}
         >
           {isSubmitting ? "Procesando..." : "Únete como cliente"}
         </Button>
       </form>
     </div>
-  )
+  );
 }
 
-import { CheckCircle } from 'lucide-react'
+import { CheckCircle } from "lucide-react";

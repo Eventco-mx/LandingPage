@@ -1,26 +1,32 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Heart, Music, PartyPopper, SnowflakeIcon as Confetti, Cake } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import {
+  Heart,
+  Music,
+  PartyPopper,
+  SnowflakeIcon as Confetti,
+  Cake,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function LoadingAnimation() {
-  const [isExiting, setIsExiting] = useState(false)
+  const [isExiting, setIsExiting] = useState(false);
 
   useEffect(() => {
     // Simular tiempo de carga y luego iniciar la animación de salida
     const timer = setTimeout(() => {
-      setIsExiting(true)
-    }, 2500)
+      setIsExiting(true);
+    }, 2500);
 
-    return () => clearTimeout(timer)
-  }, [])
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div
       className={cn(
         "fixed inset-0 z-50 flex items-center justify-center bg-white transition-opacity duration-700",
-        isExiting ? "opacity-0 pointer-events-none" : "opacity-100",
+        isExiting ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
       <div className="relative w-72 h-72">
@@ -38,7 +44,9 @@ export default function LoadingAnimation() {
 
         {/* Texto central */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-4xl font-bold text-purple-600 tracking-widest animate-pulse">EVENT.CO</span>
+          <span className="text-4xl font-bold text-purple-600 tracking-widest animate-pulse">
+            CELEA
+          </span>
         </div>
 
         {/* Elementos festivos animados */}
@@ -50,7 +58,12 @@ export default function LoadingAnimation() {
           />
           <PartyPopper
             className="absolute text-pink-400 h-8 w-8 animate-ping"
-            style={{ top: "20%", right: "10%", animationDelay: "0.5s", animationDuration: "2s" }}
+            style={{
+              top: "20%",
+              right: "10%",
+              animationDelay: "0.5s",
+              animationDuration: "2s",
+            }}
           />
           <Music
             className="absolute text-purple-300 h-8 w-8 animate-pulse"
@@ -62,10 +75,15 @@ export default function LoadingAnimation() {
           />
           <Heart
             className="absolute text-red-400 h-8 w-8 animate-ping"
-            style={{ top: "45%", right: "5%", animationDelay: "0.3s", animationDuration: "2.5s" }}
+            style={{
+              top: "45%",
+              right: "5%",
+              animationDelay: "0.3s",
+              animationDuration: "2.5s",
+            }}
           />
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -1,4 +1,4 @@
-import { Quote } from 'lucide-react'
+import { Quote } from "lucide-react";
 
 export default function Testimonials() {
   return (
@@ -9,21 +9,22 @@ export default function Testimonials() {
             Nuestra visión
           </h2>
         </div>
-        
+
         <div className="max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-md relative">
           <Quote className="absolute text-purple-200 h-24 w-24 -top-6 -left-6 opacity-50" />
           <blockquote className="relative z-10">
             <p className="text-xl md:text-2xl text-gray-700 italic mb-6">
-              "En EVENT.CO creemos que organizar una celebración debería ser tan divertido como la fiesta misma. 
-              Nuestra misión es conectar a las personas con proveedores confiables para crear momentos inolvidables, 
-              sin estrés y con total seguridad."
+              "En CELEA creemos que organizar una celebración debería ser tan
+              divertido como la fiesta misma. Nuestra misión es conectar a las
+              personas con proveedores confiables para crear momentos
+              inolvidables, sin estrés y con total seguridad."
             </p>
             <footer className="text-right">
-              <p className="font-semibold text-gray-900">El equipo de EVENT.CO</p>
+              <p className="font-semibold text-gray-900">El equipo de CELEA</p>
             </footer>
           </blockquote>
         </div>
       </div>
     </section>
-  )
+  );
 }

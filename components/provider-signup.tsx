@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, X } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -12,6 +12,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 interface Props {
   onCancelHandler: () => void;
@@ -21,66 +23,132 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    nombre: "",
+    email: "",
+    telefono: "",
+    ciudad: "",
+    nombre_negocio: "",
+    tipo_servicio: "",
+    descripcion: "",
+    redes: [""],
+    consentimiento: false,
+  });
 
-  const handleSubmit = (e: any) => {
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
+  const handleChange = (field: string, value: string | boolean | string[]) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
+    setErrors((prev) => ({ ...prev, [field]: "" }));
+  };
+
+  const handleRedLinkChange = (index: number, value: string) => {
+    const updatedLinks = [...formData.redes];
+    updatedLinks[index] = value;
+    handleChange("redes", updatedLinks);
+  };
+
+  const addLinkField = () => {
+    handleChange("redes", [...formData.redes, ""]);
+  };
+
+  const removeLinkField = (index: number) => {
+    if (formData.redes.length > 1) {
+      const updatedLinks = formData.redes.filter((_, i) => i !== index);
+      handleChange("redes", updatedLinks);
+    }
+  };
+
+  const validateStepOne = () => {
+    const newErrors: { [key: string]: string } = {};
+
+    if (!formData.nombre.trim()) newErrors.nombre = "Campo obligatorio";
+    if (!formData.email.trim()) {
+      newErrors.email = "Campo obligatorio";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Correo electrónico no válido";
+    }
+    if (!formData.telefono.trim()) newErrors.telefono = "Campo obligatorio";
+    if (!formData.ciudad.trim()) newErrors.ciudad = "Campo obligatorio";
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+
+    try {
+      console.log(formData);
+
+      await addDoc(collection(db, "proveedores"), formData);
       setIsSubmitted(true);
-    }, 1500);
+    } catch (error) {
+      console.error("Error al enviar a Firebase:", error);
+      alert("Ocurrió un error al registrar. Intenta más tarde.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleBack = () => {
-    if (step === 1) return onCancelHandler(); // se puede ajustar para salir del registro
+    if (step === 1) return onCancelHandler();
     setStep(step - 1);
   };
 
   const handleNext = () => {
-    if (step < 2) setStep(step + 1);
+    if (step === 1 && !validateStepOne()) return;
+    setStep(step + 1);
   };
 
   if (isSubmitted) {
     return (
       <div className="bg-white p-8 rounded-xl shadow-lg border border-purple-100">
-        {" "}
         <div className="text-center py-8">
-          {" "}
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-            {" "}
-            <CheckCircle className="h-8 w-8 text-green-600" />{" "}
-          </div>{" "}
+            <CheckCircle className="h-8 w-8 text-green-600" />
+          </div>
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
             ¡Gracias por registrarte!
-          </h3>{" "}
+          </h3>
           <p className="text-gray-600">
             Nos pondremos en contacto contigo pronto para darte más información
-            sobre cómo unirte a <b>Celea</b> como proveedor.{" "}
-          </p>{" "}
-        </div>{" "}
+            sobre cómo unirte a <b>Celea</b> como proveedor.
+          </p>
+        </div>
       </div>
     );
   }
 
   return (
     <div className="bg-white p-8 rounded-xl shadow-lg border border-purple-100">
-      {" "}
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-        ¿Eres proveedor de servicios para eventos?{" "}
-      </h2>{" "}
+        ¿Eres proveedor de servicios para eventos?
+      </h2>
       <p className="text-gray-600 mb-6">
         Sé de los primeros en ofrecer tus servicios en <b>Celea</b> y aumenta
-        tus ventas{" "}
+        tus ventas
       </p>
       <form onSubmit={handleSubmit} className="space-y-6">
         {step === 1 && (
+          // Información personal
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-gray-800">
               Información personal
             </h3>
             <div className="space-y-2">
               <Label htmlFor="provider-name">Nombre completo</Label>
-              <Input id="provider-name" placeholder="Juan Perez" required />
+              <Input
+                id="provider-name"
+                placeholder="Juan Perez"
+                required
+                value={formData.nombre}
+                onChange={(e) => handleChange("nombre", e.target.value)}
+              />
+              {errors.nombre && (
+                <p className="text-sm text-red-500">{errors.nombre}</p>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="provider-email">Correo electrónico</Label>
@@ -89,7 +157,12 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
                 type="email"
                 placeholder="tu@negocio.com"
                 required
+                value={formData.email}
+                onChange={(e) => handleChange("email", e.target.value)}
               />
+              {errors.email && (
+                <p className="text-sm text-red-500">{errors.email}</p>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="provider-phone">Teléfono (WhatsApp)</Label>
@@ -98,7 +171,12 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
                 type="tel"
                 placeholder="Tu número de contacto"
                 required
+                value={formData.telefono}
+                onChange={(e) => handleChange("telefono", e.target.value)}
               />
+              {errors.telefono && (
+                <p className="text-sm text-red-500">{errors.telefono}</p>
+              )}
             </div>
             <div className="space-y-2">
               <Label htmlFor="provider-city">Ciudad / Zona de cobertura</Label>
@@ -106,7 +184,12 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
                 id="provider-city"
                 placeholder="Cuautitlan Izcalli, Estado de Mexico"
                 required
+                value={formData.ciudad}
+                onChange={(e) => handleChange("ciudad", e.target.value)}
               />
+              {errors.ciudad && (
+                <p className="text-sm text-red-500">{errors.ciudad}</p>
+              )}
             </div>
           </div>
         )}
@@ -117,16 +200,23 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
               Información de tu negocio
             </h3>
             <div className="space-y-2">
-              <Label htmlFor="provider-name">Nombre de tu negocio</Label>
+              <Label htmlFor="provider-business-name">
+                Nombre de tu negocio
+              </Label>
               <Input
-                id="provider-name"
+                id="provider-business-name"
                 placeholder="Banquetes Estrella"
                 required
+                value={formData.nombre_negocio}
+                onChange={(e) => handleChange("nombre_negocio", e.target.value)}
               />
             </div>
             <div className="space-y-2">
               <Label htmlFor="service-type">Tipo de servicio ofrecido</Label>
-              <Select required>
+              <Select
+                required
+                onValueChange={(value) => handleChange("tipo_servicio", value)}
+              >
                 <SelectTrigger>
                   <SelectValue placeholder="Selecciona un tipo de servicio" />
                 </SelectTrigger>
@@ -151,33 +241,34 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
               <Input
                 id="provider-description"
                 placeholder="Cuéntanos brevemente sobre tu servicio"
+                value={formData.descripcion}
+                onChange={(e) => handleChange("descripcion", e.target.value)}
               />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="provider-socials">
-                Redes sociales o sitio web (opcional)
-              </Label>
-              <Input
-                id="provider-socials"
-                placeholder="Link a Instagram, Facebook, etc."
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="provider-portfolio">
-                Portafolio / muestra de tu trabajo (opcional)
-              </Label>
-              <Input
-                id="provider-portfolio"
-                type="file"
-                multiple
-                accept="image/*"
-              />
-            </div>
-            <div className="flex items-center space-x-2 gap-2">
-              <input type="checkbox" id="consent" required />
-              <Label htmlFor="consent">
-                Acepto que <b>Celea</b> me contacte por WhatsApp o correo.
-              </Label>
+              <Label>Redes sociales o sitio web (opcional)</Label>
+              {formData.redes.map((link, index) => (
+                <div key={index} className="flex gap-2 items-center">
+                  <Input
+                    placeholder={`Link ${index + 1}`}
+                    value={link}
+                    onChange={(e) => handleRedLinkChange(index, e.target.value)}
+                  />
+                  {formData.redes.length > 1 && (
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => removeLinkField(index)}
+                    >
+                      <X className="w-4 h-4 text-red-500" />
+                    </Button>
+                  )}
+                </div>
+              ))}
+              <Button type="button" variant="ghost" onClick={addLinkField}>
+                + Agregar otro enlace
+              </Button>
             </div>
           </div>
         )}

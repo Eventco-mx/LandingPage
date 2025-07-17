@@ -32,7 +32,7 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
     tipo_servicio: "",
     descripcion: "",
     redes: [""],
-    consentimiento: false,
+    consentimiento: true,
   });
 
   const [errors, setErrors] = useState<{ [key: string]: string }>({});

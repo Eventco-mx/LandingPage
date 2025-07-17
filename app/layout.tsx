@@ -12,12 +12,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const testEnvVariables = {
-    FIREBASE_PROJECT_ID: process.env.FIREBASE_PROJECT_ID || "default",
-  };
-
-  console.log("Test Environment Variables:", testEnvVariables);
-
   return (
     <html lang="en">
       <body>{children}</body>

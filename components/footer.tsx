@@ -18,7 +18,7 @@ export default function Footer() {
           {/* Logo y descripción */}
           <div className="md:col-span-2">
             <h2 className="text-3xl font-bold bg-gradient-to-r from-white to-purple-200 bg-clip-text text-transparent mb-4">
-              <b>Celea</b>
+              <b>CELEA</b>
             </h2>
             <p className="text-purple-200 mb-6 max-w-md">
               La plataforma que conecta eventos perfectos con proveedores
@@ -34,7 +34,7 @@ export default function Footer() {
         {/* Copyright */}
         <div className="text-center">
           <p className="text-purple-200">
-            &copy; {new Date().getFullYear()} <b>Celea</b>.
+            &copy; {new Date().getFullYear()} <b>CELEA</b>.
             <span className="block md:inline md:ml-2 mt-2 md:mt-0">
               Hecha para crear momentos inolvidables.
             </span>

@@ -14,14 +14,14 @@ export default function Testimonials() {
           <Quote className="absolute text-purple-200 h-24 w-24 -top-6 -left-6 opacity-50" />
           <blockquote className="relative z-10">
             <p className="text-xl md:text-2xl text-gray-700 italic mb-6">
-              "En <b>Celea</b> creemos que organizar una celebración debería ser
+              "En <b>CELEA</b> creemos que organizar una celebración debería ser
               tan divertido como la fiesta misma. Nuestra misión es conectar a
               las personas con proveedores confiables para crear momentos
               inolvidables, sin estrés y con total seguridad."
             </p>
             <footer className="text-right">
               <p className="font-semibold text-gray-900">
-                El equipo de <b>Celea</b>
+                El equipo de <b>CELEA</b>
               </p>
             </footer>
           </blockquote>

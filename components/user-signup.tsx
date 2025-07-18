@@ -42,7 +42,7 @@ export default function UserSignup() {
             ¡Gracias por registrarte!
           </h3>
           <p className="text-gray-600">
-            Te notificaremos cuando <b>Celea</b> esté disponible en tu ciudad.
+            Te notificaremos cuando <b>CELEA</b> esté disponible en tu ciudad.
           </p>
         </div>
       </div>
@@ -56,7 +56,7 @@ export default function UserSignup() {
       </h2>
       <p className="text-gray-600 mb-6">
         Regístrate en nuestra lista de espera y sé de los primeros en disfrutar
-        de <b>Celea</b>
+        de <b>CELEA</b>
       </p>
 
       <form onSubmit={handleSubmit} className="space-y-4">

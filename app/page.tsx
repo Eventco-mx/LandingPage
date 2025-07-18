@@ -52,7 +52,7 @@ export default function LandingPage() {
                     ¿Listo para hacer crecer tu negocio?
                   </h3>
                   <p className="text-lg text-gray-600 mb-8">
-                    Sé parte de los primeros proveedores en <b>Celea</b> y obtén
+                    Sé parte de los primeros proveedores en <b>CELEA</b> y obtén
                     acceso prioritario cuando lancemos la plataforma.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">

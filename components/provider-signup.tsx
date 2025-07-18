@@ -114,7 +114,7 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
           </h3>
           <p className="text-gray-600">
             Nos pondremos en contacto contigo pronto para darte más información
-            sobre cómo unirte a <b>Celea</b> como proveedor.
+            sobre cómo unirte a <b>CELEA</b> como proveedor.
           </p>
         </div>
       </div>
@@ -127,7 +127,7 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
         ¿Eres proveedor de servicios para eventos?
       </h2>
       <p className="text-gray-600 mb-6">
-        Sé de los primeros en ofrecer tus servicios en <b>Celea</b> y aumenta
+        Sé de los primeros en ofrecer tus servicios en <b>CELEA</b> y aumenta
         tus ventas
       </p>
       <form onSubmit={handleSubmit} className="space-y-6">

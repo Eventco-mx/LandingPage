@@ -62,7 +62,7 @@ export default function ProviderBenefitsSection() {
             Para Proveedores
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-gray-900 mb-6">
-            Haz crecer tu negocio con <b>Celea</b>
+            Haz crecer tu negocio con <b>CELEA</b>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Únete a la plataforma líder en servicios para eventos y lleva tu
@@ -92,7 +92,7 @@ export default function ProviderBenefitsSection() {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-16 grid gap-8 md:grid-cols-3 text-center">
+        <div className="mt-16 grid gap-8 md:grid-cols-2 text-center">
           <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl">
             <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
               500+
@@ -104,12 +104,6 @@ export default function ProviderBenefitsSection() {
               10K+
             </div>
             <div className="text-gray-600">Usuarios registrados</div>
-          </div>
-          <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl">
-            <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
-              15+
-            </div>
-            <div className="text-gray-600">Ciudades disponibles</div>
           </div>
         </div>
       </div>

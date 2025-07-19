@@ -9,6 +9,7 @@ import {
   Cake,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function LoadingAnimation() {
   const [isExiting, setIsExiting] = useState(false);
@@ -29,35 +30,39 @@ export default function LoadingAnimation() {
         isExiting ? "opacity-0 pointer-events-none" : "opacity-100"
       )}
     >
-      <div className="relative w-72 h-72">
+      <div className="relative w-[26rem] h-[26rem]">
         {/* Círculo principal */}
         <div
-          className="absolute inset-0 border-8 border-t-purple-600 border-r-purple-600 border-b-transparent border-l-transparent rounded-full animate-spin"
+          className="absolute inset-0 border-[12px] border-t-purple-600 border-r-purple-600 border-b-transparent border-l-transparent rounded-full animate-spin"
           style={{ animationDuration: "2s" }}
         ></div>
 
         {/* Círculo secundario */}
         <div
-          className="absolute inset-4 border-8 border-t-transparent border-r-transparent border-b-purple-300 border-l-purple-300 rounded-full animate-spin"
+          className="absolute inset-8 border-[12px] border-t-transparent border-r-transparent border-b-purple-300 border-l-purple-300 rounded-full animate-spin"
           style={{ animationDuration: "1.5s", animationDirection: "reverse" }}
         ></div>
 
-        {/* Texto central */}
+        {/* ✅ Imagen centrada con parpadeo */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-4xl font-bold text-purple-600 tracking-widest animate-pulse">
-            <b>CELEA</b>
-          </span>
+          <Image
+            src="/logo_celea.png"
+            alt="Logo de CELEA"
+            width={200}
+            height={200}
+            priority
+            className="animate-blink" // ⬅️ Animación de parpadeo
+          />
         </div>
 
         {/* Elementos festivos animados */}
         <div className="absolute w-full h-full">
-          {/* Confeti y elementos de fiesta con animaciones */}
           <Confetti
-            className="absolute text-yellow-300 h-8 w-8 animate-bounce"
+            className="absolute text-yellow-300 h-10 w-10 animate-bounce"
             style={{ top: "10%", left: "10%", animationDelay: "0.2s" }}
           />
           <PartyPopper
-            className="absolute text-pink-400 h-8 w-8 animate-ping"
+            className="absolute text-pink-400 h-10 w-10 animate-ping"
             style={{
               top: "20%",
               right: "10%",
@@ -66,15 +71,15 @@ export default function LoadingAnimation() {
             }}
           />
           <Music
-            className="absolute text-purple-300 h-8 w-8 animate-pulse"
+            className="absolute text-purple-300 h-10 w-10 animate-pulse"
             style={{ bottom: "20%", left: "15%", animationDelay: "0.7s" }}
           />
           <Cake
-            className="absolute text-green-300 h-8 w-8 animate-bounce"
+            className="absolute text-green-300 h-10 w-10 animate-bounce"
             style={{ bottom: "15%", right: "15%", animationDelay: "0.9s" }}
           />
           <Heart
-            className="absolute text-red-400 h-8 w-8 animate-ping"
+            className="absolute text-red-400 h-10 w-10 animate-ping"
             style={{
               top: "45%",
               right: "5%",

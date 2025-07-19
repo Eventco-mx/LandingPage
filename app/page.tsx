@@ -63,6 +63,13 @@ export default function LandingPage() {
                     >
                       Únete como proveedor
                     </Button>
+                    <Button
+                      size="lg"
+                      className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-8 py-6 h-auto text-lg"
+                      onClick={() => setCurrentView("provider")}
+                    >
+                      Únete como cliente
+                    </Button>
                   </div>
                 </div>
               </>

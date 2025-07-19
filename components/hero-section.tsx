@@ -13,8 +13,12 @@ export default function HeroSection() {
               ¡Próximamente!
             </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter text-gray-900">
-              Organiza tu fiesta perfecta con proveedores verificados
+              Organiza fácil, Celebra seguro
             </h1>
+            <h2 className="relative text-2xl md:text-3xl lg:text-4xl font-semibold italic tracking-tight text-purple-700">
+              Encuentra todo para tu evento en un solo lugar
+              <span className="absolute left-0 -bottom-2 w-full h-[3px] bg-purple-300 rounded-full"></span>
+            </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-[600px]">
               <b>CELEA</b> te conecta con los mejores servicios para tu evento,
               todo desde una sola app. Encuentra inflables, DJs, catering,

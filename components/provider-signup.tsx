@@ -80,8 +80,6 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
     setIsSubmitting(true);
 
     try {
-      console.log(formData);
-
       await addDoc(collection(db, "proveedores"), formData);
       setIsSubmitted(true);
     } catch (error) {

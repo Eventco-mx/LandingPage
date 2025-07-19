@@ -6,6 +6,18 @@ import Image from "next/image";
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-white py-16 md:py-24">
+      {/* ✅ Logo flotante siempre visible */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <Image
+          src="/logo-celea.svg" // Ajusta a tu archivo real
+          alt="CELEA Logo"
+          width={80}
+          height={80}
+          className="w-16 md:w-20 lg:w-24 h-auto object-contain drop-shadow-lg cursor-pointer"
+          priority
+        />
+      </div>
+
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-12 items-center">
           <div className="space-y-6">
@@ -44,10 +56,11 @@ export default function HeroSection() {
               y obtén acceso anticipado a <b>CELEA</b>.
             </p>
           </div>
+
           <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
             <Image
               src="/colorful-dance-party.png"
-              alt="Celebración de evento con <b>CELEA</b>"
+              alt="Celebración de evento con CELEA"
               fill
               className="object-cover"
               priority

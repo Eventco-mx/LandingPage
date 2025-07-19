@@ -49,27 +49,34 @@ export default function LandingPage() {
               <>
                 <div className="text-center max-w-2xl mx-auto">
                   <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                    ¿Listo para hacer crecer tu negocio?
+                    ¿Cómo quieres usar <b>CELEA</b>?
                   </h3>
                   <p className="text-lg text-gray-600 mb-8">
-                    Sé parte de los primeros proveedores en <b>CELEA</b> y obtén
+                    Sé parte de los primeros usuarios en <b>CELEA</b> y obtén
                     acceso prioritario cuando lancemos la plataforma.
                   </p>
-                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button
-                      size="lg"
-                      className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-8 py-6 h-auto text-lg"
-                      onClick={() => setCurrentView("provider")}
+                  <div className="flex flex-col gap-4">
+                    {/* ✅ Botón para organizadores */}
+                    <button
+                      onClick={() => setCurrentView("user")}
+                      className="flex flex-col items-center justify-center rounded-2xl border border-purple-200 bg-white shadow-sm hover:shadow-md hover:border-purple-400 transition-all duration-300 px-6 py-5"
                     >
-                      Únete como proveedor
-                    </Button>
-                    <Button
-                      size="lg"
-                      className="bg-purple-600 hover:bg-purple-700 text-white font-medium px-8 py-6 h-auto text-lg"
+                      <Calendar className="h-6 w-6 mb-2 text-purple-600" />
+                      <span className="text-lg font-medium text-gray-900">
+                        Quiero organizar mi evento
+                      </span>
+                    </button>
+
+                    {/* ✅ Botón para proveedores */}
+                    <button
                       onClick={() => setCurrentView("provider")}
+                      className="flex flex-col items-center justify-center rounded-2xl border border-purple-200 bg-white shadow-sm hover:shadow-md hover:border-purple-400 transition-all duration-300 px-6 py-5"
                     >
-                      Únete como cliente
-                    </Button>
+                      <Users className="h-6 w-6 mb-2 text-purple-600" />
+                      <span className="text-lg font-medium text-gray-900">
+                        Quiero unirme como proveedor
+                      </span>
+                    </button>
                   </div>
                 </div>
               </>

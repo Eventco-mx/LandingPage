@@ -36,6 +36,13 @@ export default function HeroSection() {
             >
               Únete a la lista de espera
             </Button>
+            <p className="text-sm text-gray-500 italic">
+              Únete a la lista de espera{" "}
+              <span className="font-medium text-purple-700">
+                completamente gratis
+              </span>{" "}
+              y obtén acceso anticipado a <b>CELEA</b>.
+            </p>
           </div>
           <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
             <Image

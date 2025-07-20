@@ -46,10 +46,10 @@ export default function LoadingAnimation() {
         {/* ✅ Imagen centrada con parpadeo */}
         <div className="absolute inset-0 flex items-center justify-center">
           <Image
-            src="/logo_celea.png"
+            src="/logo_celea_loading.png"
             alt="Logo de CELEA"
-            width={200}
-            height={200}
+            width={300}
+            height={300}
             priority
             className="animate-blink" // ⬅️ Animación de parpadeo
           />

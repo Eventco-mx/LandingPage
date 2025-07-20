@@ -92,7 +92,7 @@ export default function ProviderBenefitsSection() {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-16 grid gap-8 md:grid-cols-2 text-center">
+        {/* <div className="mt-16 grid gap-8 md:grid-cols-2 text-center">
           <div className="bg-white/70 backdrop-blur-sm p-6 rounded-xl">
             <div className="text-3xl md:text-4xl font-bold text-purple-600 mb-2">
               500+
@@ -105,7 +105,7 @@ export default function ProviderBenefitsSection() {
             </div>
             <div className="text-gray-600">Usuarios registrados</div>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );

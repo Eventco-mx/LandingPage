@@ -20,7 +20,7 @@ export default function Testimonials() {
               inolvidables, sin estrés y con total seguridad."
             </p>
             <footer className="text-right">
-              <p className="font-semibold text-gray-900">
+              <p className="font-semibold text-gray-900 italic">
                 El equipo de <b>CELEA</b>
               </p>
             </footer>

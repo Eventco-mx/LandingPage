@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -17,12 +17,17 @@ import { db } from "@/lib/firebase";
 
 interface Props {
   onCancelHandler: () => void;
+  isSubmitted: boolean;
+  setIsSubmitted: (value: boolean) => void;
 }
 
-export default function ProviderSignup({ onCancelHandler }: Props) {
+export default function ProviderSignup({
+  onCancelHandler,
+  isSubmitted,
+  setIsSubmitted,
+}: Props) {
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     nombre: "",
     email: "",
@@ -99,25 +104,6 @@ export default function ProviderSignup({ onCancelHandler }: Props) {
     if (step === 1 && !validateStepOne()) return;
     setStep(step + 1);
   };
-
-  if (isSubmitted) {
-    return (
-      <div className="bg-white p-8 rounded-xl shadow-lg border border-purple-100">
-        <div className="text-center py-8">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 mb-4">
-            <CheckCircle className="h-8 w-8 text-green-600" />
-          </div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-2">
-            ¡Gracias por registrarte!
-          </h3>
-          <p className="text-gray-600">
-            Nos pondremos en contacto contigo pronto para darte más información
-            sobre cómo unirte a <b>CELEA</b> como proveedor.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="bg-white p-8 rounded-xl shadow-lg border border-purple-100">

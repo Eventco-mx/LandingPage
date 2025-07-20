@@ -12,7 +12,7 @@ export default function BenefitsSection() {
       icon: <ShieldCheck className="h-10 w-10 text-purple-600" />,
       title: "Reservas seguras a través de la plataforma",
       description:
-        "Realiza pagos seguros y ten la tranquilidad de que tu evento está respaldado por nuestra garantía.",
+        "Realiza pagos seguros y ten la tranquilidad de que tu evento está respaldado por CELEA.",
     },
     {
       icon: <Clock className="h-10 w-10 text-purple-600" />,

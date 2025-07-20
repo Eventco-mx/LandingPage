@@ -13,7 +13,7 @@ export default function HeroSection() {
           alt="CELEA Logo"
           width={80}
           height={80}
-          className="w-16 md:w-20 lg:w-24 h-auto object-contain drop-shadow-lg cursor-pointer"
+          className="w-12 md:w-20 lg:w-24 h-auto object-contain drop-shadow-lg cursor-pointer"
           priority
         />
       </div>

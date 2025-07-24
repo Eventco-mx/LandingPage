@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "CELEA",
   description:
-    "CELEA te conecta con proveedores verificados para que organices tu evento fácil, rápido y sin complicaciones.",
+    "Descubre la app que conecta organizadores y proveedores. Únete a la lista y sé el primero en usar CELEA. ¡Es gratis! 🎉",
   applicationName: "CELEA",
   generator: "Next.js",
   keywords: [
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "CELEA | Organiza tu evento fácil y seguro",
+    title: "CELEA | 👉 Organiza tu evento fácil y seguro con CELEA",
     description:
-      "CELEA te conecta con proveedores verificados para que organices tu evento fácil, rápido y sin complicaciones.",
+      "Descubre la app que conecta organizadores y proveedores. Únete a la lista y sé el primero en usar CELEA. ¡Es gratis! 🎉",
     url: "https://www.celea.app",
     siteName: "CELEA",
     images: [
@@ -54,9 +54,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "CELEA | Organiza tu evento fácil y seguro",
+    title: "CELEA | 👉 Organiza tu evento fácil y seguro con CELEA",
     description:
-      "Encuentra proveedores verificados y organiza tu evento sin complicaciones.",
+      "Descubre la app que conecta organizadores y proveedores. Únete a la lista y sé el primero en usar CELEA. ¡Es gratis! 🎉",
     images: ["https://www.celea.app/android-chrome-512x512.png"],
   },
   other: {

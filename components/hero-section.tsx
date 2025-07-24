@@ -59,7 +59,7 @@ export default function HeroSection() {
 
           <div className="relative h-[400px] lg:h-[500px] rounded-xl overflow-hidden shadow-2xl">
             <Image
-              src="/colorful-dance-party.png"
+              src="/hero-image-1.jpg"
               alt="Celebración de evento con CELEA"
               fill
               className="object-cover"
